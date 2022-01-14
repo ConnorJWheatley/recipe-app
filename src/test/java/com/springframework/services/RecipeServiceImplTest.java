@@ -1,13 +1,13 @@
 package com.springframework.services;
 
+import com.springframework.converters.RecipeCommandToRecipe;
+import com.springframework.converters.RecipeToRecipeCommand;
 import com.springframework.domain.Recipe;
 import com.springframework.repositories.RecipeRepository;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.Mock;
 import org.mockito.MockitoAnnotations;
-
-import javax.swing.text.html.Option;
 import java.util.HashSet;
 import java.util.Optional;
 import java.util.Set;
@@ -20,6 +20,8 @@ import static org.mockito.Mockito.*;
 public class RecipeServiceImplTest {
 
     RecipeServiceImpl recipeService;
+    RecipeCommandToRecipe recipeCommandToRecipe;
+    RecipeToRecipeCommand recipeToRecipeCommand;
 
     @Mock
     RecipeRepository recipeRepository;
@@ -28,7 +30,7 @@ public class RecipeServiceImplTest {
     public void setUp() throws Exception {
         MockitoAnnotations.openMocks(this);
 
-        recipeService = new RecipeServiceImpl(recipeRepository);
+        recipeService = new RecipeServiceImpl(recipeRepository, recipeCommandToRecipe, recipeToRecipeCommand);
     }
 
     @Test
