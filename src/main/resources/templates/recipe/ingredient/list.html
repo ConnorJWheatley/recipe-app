@@ -20,16 +20,17 @@
 
 </head>
 <body>
-
+<!--/*@thymesVar id="recipe" type="com.springframework.domain.Recipe"*/-->
+<!--/*@thymesVar id="ingredients" type="com.springframework.domain.Recipe"*/-->
 <div class="container-fluid" style="margin-top: 20px;">
     <div class="row justify-content-center">
         <div class="col-md-6 col-md-offset-3">
             <div class="card card-primary border border-primary">
                 <div class="card-header bg-primary text-light">
-                    <h7 class="card-title">My Recipes!</h7>
+                    <h7 class="card-title">Ingredients</h7>
                 </div>
                 <div class="card-body">
-                    <div class="table-responsive" th:if="${!#lists.isEmpty(recipes)}">
+                    <div class="table-responsive" th:if="${not #lists.isEmpty(recipe.ingredients)}">
 
                         <table class="table table-hover">
                             <thead class="thead-inverse">
@@ -51,13 +52,14 @@
                                 <td>Tasty Goodness 2</td>
                                 <td><a href="#">View</a></td>
                             </tr>
-                            <tr th:each="recipe : ${recipes}">
-                                <!--/*@thymesVar id="recipe" type="com.springframework.domain.Recipe"*/-->
-                                <td th:text="${recipe.id}">334</td>
-                                <td th:text="${recipe.description}">Tasty Goodnees 3</td>
-                                <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/show/'}">View</a></td>
-                                <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/update'}">Update</a></td>
-                                <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/delete'}">Delete</a></td>
+                            <tr th:each="ingredient : ${recipe.ingredients}">
+
+                                <td th:text="${ingredient.id}">334</td>
+                                <td th:text="${ingredient.amount} + ' ' + ${ingredient.uom.getDescription()} + ' ' + ${ingredient.description} + '/show'">Tasty Goodness 3</td>
+                                <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} + '/show'}">View</a></td>
+                                <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} + '/update'}">View</a></td>
+                                <td><a href="#" th:href="@{'/recipe/' + ${recipe.id} + '/ingredient/' + ${ingredient.id} + '/delete'}">Delete</a></td>
+
                             </tr>
                             </tbody>
                         </table>
