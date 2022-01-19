@@ -42,10 +42,13 @@
 			<scope>runtime</scope>
 		</dependency>
 		<dependency>
+			<groupId>org.hibernate.validator</groupId>
+			<artifactId>hibernate-validator</artifactId>
+		</dependency>
+		<dependency>
 			<groupId>org.projectlombok</groupId>
 			<artifactId>lombok</artifactId>
 		</dependency>
-
 		<dependency>
 			<groupId>org.webjars.npm</groupId>
 			<artifactId>bootstrap</artifactId>
@@ -58,7 +61,6 @@
 			<version>3.6.0</version>
 			<!-- 3.2.1 is version used in video -->
 		</dependency>
-
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
