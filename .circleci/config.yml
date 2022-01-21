@@ -18,6 +18,13 @@ jobs:
                   name: "Say hello"
                   command: "echo Hello, World!"
 
+        # run tests! and generate code coverage
+        - run: mvn integration-tes cobertura:cobertura
+
+        - run:
+              name: Send to CodeCov
+              command: bash <(curl -s https://codecov.io/bash)
+
 # Invoke jobs via workflows
 # See: https://circleci.com/docs/2.0/configuration-reference/#workflows
 workflows:
