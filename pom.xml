@@ -53,13 +53,11 @@
 			<groupId>org.webjars.npm</groupId>
 			<artifactId>bootstrap</artifactId>
 			<version>5.1.3</version>
-			<!-- version used in video is 3.3.7-1 -->
 		</dependency>
 		<dependency>
 			<groupId>org.webjars.npm</groupId>
 			<artifactId>jquery</artifactId>
 			<version>3.6.0</version>
-			<!-- 3.2.1 is version used in video -->
 		</dependency>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
@@ -71,6 +69,10 @@
             <artifactId>junit</artifactId>
             <scope>test</scope>
         </dependency>
+		<dependency>
+			<groupId>mysql</groupId>
+			<artifactId>mysql-connector-java</artifactId>
+		</dependency>
 
 		<!-- This is so maven failsafe can work		-->
 <!--		<dependency>-->
